@@ -23,7 +23,7 @@ P-UCT achieves ideal speedup under up to 16 workers, also without performance de
 
 Clear advantage compared to baseline parallel approaches, in terms of both speed and accuracy.
 
-## Implementation
+## System implementation
 <p align="center">
 <img src="Figures/Figure_puct_pipeline.png" width="700">
 </p>
