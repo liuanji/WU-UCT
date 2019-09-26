@@ -2,7 +2,7 @@
 A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provide demo on Atari games (see [Run on your own environments](#Run-on-your-own-environments)） To allow easy extension to other environments, we include an environment [wrapper file](./Env/EnvWrapper.py)
 
 # Introduction
-Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org) paper.
+Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org) paper (temporary unavailable).
 
 ## Conceptual idea
 <p align="center">
