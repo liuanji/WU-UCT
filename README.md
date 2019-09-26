@@ -21,7 +21,7 @@ P-UCT achieves ideal speedup under up to 16 workers, also without performance de
 <img src="Figures/Figure_atari_results.png" width="700">
 </p>
 
-Clear priviledge compared to baseline parallel approaches.
+Clear advantage compared to baseline parallel approaches, in terms of both speed and accuracy.
 
 ## Implementation
 <p align="center">
@@ -51,7 +51,7 @@ The breakdown of time consumption (tested with 16 expansion and simulation worke
 ```
   python3 main.py --model P-UCT
 ```
-3. For additional hyperparameters please have a look at [main.py](./main.py), where descriptions are also included. For example, if you want to run the game PongNoFrameskip-v0 with 200 MCTS rollouts, simply run:
+3. For additional hyperparameters please have a look at [main.py](./main.py) (they are also listed below), where descriptions are also included. For example, if you want to run the game PongNoFrameskip-v0 with 200 MCTS rollouts, simply run:
 ```
   python3 main.py --model P-UCT --env-name PongNoFrameskip-v0 --MCTS-max-steps 200
 ```
@@ -89,6 +89,13 @@ a policy file will be generated in [./Utils/Atari_PPO_training/save](./Utils/Ata
 
 ## Run on your own environments
 We kindly provide an [environment wrapper](./Env/EnvWrapper.py) to make easy extensions to other environments. All you need is to modify [./Env/EnvWrapper.py](./Env/EnvWrapper.py) and fit in your own environment. Specifically, you just need to rewrite APIs in the EnvWrapper class.
+
+# Updates and to-do list
+## Past updates
+(currently empty)
+
+## To-do list
+1. Refactor prior policy module to support easy reuse.
 
 # Reference
 Please cite the paper in the following format if you used this code during your research :)
