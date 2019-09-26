@@ -2,7 +2,7 @@
 A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provide demo on Atari games (see [Run on your own environments](#Run-on-your-own-environments)） To allow easy extension to other environments, we include an environment [wrapper file](./Env/EnvWrapper.py)
 
 # Introduction
-Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org) paper.
+Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org) paper (temporary unavailable).
 
 ## Conceptual idea
 <p align="center">
@@ -23,7 +23,7 @@ P-UCT achieves ideal speedup under up to 16 workers, also without performance de
 
 Clear advantage compared to baseline parallel approaches, in terms of both speed and accuracy.
 
-## Implementation
+## System implementation
 <p align="center">
 <img src="Figures/Figure_puct_pipeline.png" width="700">
 </p>
@@ -90,7 +90,7 @@ a policy file will be generated in [./Utils/Atari_PPO_training/save](./Utils/Ata
 ## Run on your own environments
 We kindly provide an [environment wrapper](./Env/EnvWrapper.py) to make easy extensions to other environments. All you need is to modify [./Env/EnvWrapper.py](./Env/EnvWrapper.py) and fit in your own environment. Specifically, you just need to rewrite APIs in the EnvWrapper class.
 
-# Updates and to-do list
+# Updates and to-dos
 ## Past updates
 (currently empty)
 
