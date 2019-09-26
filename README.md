@@ -90,7 +90,7 @@ a policy file will be generated in [./Utils/Atari_PPO_training/save](./Utils/Ata
 ## Run on your own environments
 We kindly provide an [environment wrapper](./Env/EnvWrapper.py) to make easy extensions to other environments. All you need is to modify [./Env/EnvWrapper.py](./Env/EnvWrapper.py) and fit in your own environment. Specifically, you just need to rewrite APIs in the EnvWrapper class.
 
-# Updates and to-do list
+# Updates and to-dos
 ## Past updates
 (currently empty)
 
