@@ -39,7 +39,7 @@ def main():
                         help = "Maximum episode length (default: 100000)")
 
     parser.add_argument("--policy", type = str, default = "Random",
-                        help = "Prior prob/simulation policy used in MCTS Random/PPO (default: Random)")
+                        help = "Prior prob/simulation policy used in MCTS Random/PPO/DistillPPO (default: Random)")
 
     parser.add_argument("--device", type = str, default = "cpu",
                         help = "PyTorch device, if entered 'cuda', use cuda device parallelization (default: cpu)")
