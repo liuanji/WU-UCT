@@ -1,5 +1,5 @@
 # P-UCT
-A novel parallel UCT algorithm with linear speedup and negligible performance loss. To allow easy extension to other environments, we include a environment [wrapper file](./Env/EnvWrapper.py)
+A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provide demo on Atari games (see [Running](##Running)） To allow easy extension to other environments, we include an environment [wrapper file](./Env/EnvWrapper.py)
 
 # Introduction
 
