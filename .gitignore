@@ -91,6 +91,9 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
+# pyenv
+.python-version
+
 # celery beat schedule file
 celerybeat-schedule
 
@@ -117,7 +120,6 @@ venv.bak/
 /site
 
 # mypy
-.mypy_cache/
 .dmypy.json
 dmypy.json
 
