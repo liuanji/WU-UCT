@@ -13,7 +13,7 @@ from Env.EnvWrapper import EnvWrapper
 
 from Mem.CheckpointManager import CheckpointManager
 
-from Policy.PPO.PPOPolicy import PPOAtariCNN
+from Policy.PolicyWrapper import PolicyWrapper
 
 
 class UCT():
@@ -28,7 +28,7 @@ class UCT():
         self.seed = seed
         self.device = device
 
-        self.policy_func = None
+        self.policy_wrapper = None
 
         # Environment
         self.wrapped_env = EnvWrapper(**env_params)
@@ -50,20 +50,12 @@ class UCT():
         self.init_policy()
 
     def init_policy(self):
-        if self.policy == "Random":
-            return
-        elif self.policy == "PPO":
-            checkpoint_dir = "./Policy/PPO/PolicyFiles/PPO_" + self.env_params["env_name"] + ".pt"
-            if not os.path.exists(checkpoint_dir):
-                checkpoint_dir = ""
-
-            self.policy_func = PPOAtariCNN(
-                self.action_n,
-                device = self.device,
-                checkpoint_dir = checkpoint_dir
-            )
-        else:
-            raise NotImplementedError
+        self.policy_wrapper = PolicyWrapper(
+            self.policy,
+            self.env_params["env_name"],
+            self.action_n,
+            self.device
+        )
 
     # Entrance of the P-UCT algorithm
     def simulate_trajectory(self, max_episode_length = -1):
@@ -207,20 +199,10 @@ class UCT():
         self.complete_update(curr_node, self.root_node, accu_reward)
 
     def get_action(self, state):
-        if self.policy == "Random":
-            return random.randint(0, self.action_n - 1)
-        elif self.policy == "PPO":
-            return self.categorical(self.policy_func.get_action(state))
-        else:
-            raise NotImplementedError
+        return self.policy_wrapper.get_action(state)
 
     def get_prior_prob(self, state):
-        if self.policy == "Random":
-            return np.ones([self.action_n], dtype = np.float32) / self.action_n
-        elif self.policy == "PPO":
-            return self.policy_func.get_action(state)
-        else:
-            raise NotImplementedError
+        return self.policy_wrapper.get_prior_prob(state)
 
     def close(self):
         pass
@@ -232,20 +214,3 @@ class UCT():
             curr_node = curr_node.parent
 
         curr_node_head.update(accu_reward)
-
-    @staticmethod
-    def categorical(probs):
-        val = random.random()
-        chosen_idx = 0
-
-        for prob in probs:
-            val -= prob
-
-            if val < 0.0:
-                break
-
-            chosen_idx += 1
-
-        assert chosen_idx < len(probs)
-
-        return chosen_idx

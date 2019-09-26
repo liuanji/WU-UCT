@@ -1,4 +1,3 @@
-import torch
 from multiprocessing import Process
 from copy import deepcopy
 import random
@@ -8,11 +7,13 @@ from Env.EnvWrapper import EnvWrapper
 
 from Policy.PPO.PPOPolicy import PPOAtariCNN, PPOSmallAtariCNN
 
+from Policy.PolicyWrapper import PolicyWrapper
+
 
 # Slave workers
 class Worker(Process):
     def __init__(self, pipe, env_params, policy = "Random", gamma = 1.0, seed = 123,
-                 device = "cpu", checkpoint_dir = "", need_policy = True):
+                 device = "cpu", need_policy = True):
         super(Worker, self).__init__()
 
         self.pipe = pipe
@@ -21,14 +22,13 @@ class Worker(Process):
         self.seed = seed
         self.policy = deepcopy(policy)
         self.device = deepcopy(device)
-        self.checkpoint_dir = deepcopy(checkpoint_dir)
         self.need_policy = need_policy
 
         self.wrapped_env = None
         self.action_n = None
         self.max_episode_length = None
 
-        self.policy_func = None
+        self.policy_wrapper = None
 
     # Initialize the environment
     def init_process(self):
@@ -41,36 +41,12 @@ class Worker(Process):
 
     # Initialize the default policy
     def init_policy(self):
-        if self.policy == "Random":
-            return
-        elif self.policy == "PPO":
-            if not self.need_policy:
-                return
-
-            self.policy_func = PPOAtariCNN(
-                self.action_n,
-                device = self.device,
-                checkpoint_dir = self.checkpoint_dir
-            )
-        elif self.policy == "DistillPPO":
-            if not self.need_policy:
-                return
-
-            full_policy = PPOAtariCNN(
-                self.action_n,
-                device = "cpu", # To save memory
-                checkpoint_dir = self.checkpoint_dir[0]
-            )
-
-            small_policy = PPOSmallAtariCNN(
-                self.action_n,
-                device = self.device,
-                checkpoint_dir = self.checkpoint_dir[1]
-            )
-
-            self.policy_func = [full_policy, small_policy]
-        else:
-            raise NotImplementedError
+        self.policy_wrapper = PolicyWrapper(
+            self.policy,
+            self.env_params["env_name"],
+            self.action_n,
+            self.device
+        )
 
     def run(self):
         self.init_process()
@@ -169,34 +145,13 @@ class Worker(Process):
         return accu_reward
 
     def get_action(self, state):
-        if self.policy == "Random":
-            return random.randint(0, self.action_n - 1)
-        elif self.policy == "PPO":
-            return self.categorical(self.policy_func.get_action(state))
-        elif self.policy == "DistillPPO":
-            return self.categorical(self.policy_func[1].get_action(state))
-        else:
-            raise NotImplementedError()
+        return self.policy_wrapper.get_action(state)
 
     def get_value(self, state):
-        if self.policy == "Random":
-            return 0.0
-        elif self.policy == "PPO":
-            return self.policy_func.get_value(state)
-        elif self.policy == "DistillPPO":
-            return self.policy_func[0].get_value(state)
-        else:
-            raise NotImplementedError()
+        return self.policy_wrapper.get_value(state)
 
     def get_prior_prob(self, state):
-        if self.policy == "Random":
-            return np.ones([self.action_n], dtype = np.float32) / self.action_n
-        elif self.policy == "PPO":
-            return self.policy_func.get_action(state)
-        elif self.policy == "DistillPPO":
-            return self.policy_func[0].get_action(state)
-        else:
-            raise NotImplementedError()
+        return self.policy_wrapper.get_prior_prob(state)
 
     # Send message through pipe
     def send_safe_protocol(self, command, args):
@@ -218,21 +173,3 @@ class Worker(Process):
         self.pipe.send(command)
 
         return deepcopy(command), deepcopy(args)
-
-    @staticmethod
-    def categorical(probs):
-        val = random.random()
-        chosen_idx = 0
-
-        for prob in probs:
-            val -= prob
-
-            if val < 0.0:
-                break
-
-            chosen_idx += 1
-
-        if chosen_idx >= len(probs):
-            chosen_idx = len(probs) - 1
-
-        return chosen_idx

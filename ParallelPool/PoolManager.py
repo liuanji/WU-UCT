@@ -21,37 +21,6 @@ class PoolManager():
         self.workers = []
         self.pipes = []
 
-        # Prepare policy
-        if policy == "Random":
-            checkpoint_dir = None
-        elif policy == "PPO":
-            checkpoint_dir = "./Policy/PPO/PolicyFiles/PPO_" + env_params["env_name"] + ".pt"
-            if not os.path.exists(checkpoint_dir):
-                checkpoint_dir = ""
-                print("[!] PPO policy model file not founded")
-                print("[!] Expect to find at {}".format(checkpoint_dir))
-            else:
-                print("> PPO policy load from {}".format(checkpoint_dir))
-        elif policy == "DistillPPO":
-            checkpoint_dir = ["./Policy/PPO/PolicyFiles/PPO_" + env_params["env_name"] + ".pt",
-                              "./Policy/PPO/PolicyFiles/SmallPPO_" + env_params["env_name"] + ".pt"]
-            if not os.path.exists(checkpoint_dir[0]):
-                checkpoint_dir[0] = ""
-                print("[!] PPO policy model file not founded")
-                print("[!] Expect to find at {}".format(checkpoint_dir[0]))
-            else:
-                print("> PPO policy load from {}".format(checkpoint_dir[0]))
-
-            if not os.path.exists(checkpoint_dir[1]):
-                checkpoint_dir[1] = ""
-                print("[!] SmallPPO policy model file not founded")
-                print("[!] Expect to find at {}".format(checkpoint_dir[1]))
-            else:
-                print("> PPO policy load from {}".format(checkpoint_dir[1]))
-
-        else:
-            raise NotImplementedError()
-
         # CUDA device parallelization
         # if multiple cuda devices exist, use them all
         if torch.cuda.is_available():
@@ -70,7 +39,6 @@ class PoolManager():
                 policy = policy,
                 gamma = gamma,
                 seed = seed + worker_idx,
-                checkpoint_dir = checkpoint_dir,
                 device = device + ":" + str(int(torch_device_num * worker_idx / worker_num))
                     if device == "cuda" else device,
                 need_policy = need_policy
