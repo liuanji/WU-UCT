@@ -96,7 +96,7 @@ We kindly provide an [environment wrapper](./Env/EnvWrapper.py) and a [policy wr
 
 2. Edit the class PolicyWrapper in [./Policy/PolicyWrapper.py](./Policy/PolicyWrapper.py).
 
-   Similarly, nest your default policy in PolicyWrapper, and pass the corresponding method using --policy. You will need to rewrite *get_action*, *get_value*, and *get_prior_prob* three member functions.
+  Similarly, nest your default policy in PolicyWrapper, and pass the corresponding method using --policy. You will need to rewrite *get_action*, *get_value*, and *get_prior_prob* three member functions.
 
 # Updates and to-dos
 ## Past updates
