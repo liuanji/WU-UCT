@@ -1,5 +1,5 @@
 # P-UCT
-A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provide demo on Atari games (see [Running](#Running). To allow easy extension to other environments, we wrote the code in an extendable way, and modification on only two files are needed for other environments (see [Run on your own environments](#Run-on-your-own-environments)).
+A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provides a demo on Atari games (see [Running](#Running). To allow easy extension to other environments, we wrote the code in an extendable way, and modification on only two files are needed for other environments (see [Run on your own environments](#Run-on-your-own-environments)).
 
 # Introduction
 Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org) paper (temporary unavailable).
