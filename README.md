@@ -34,7 +34,7 @@ Our implementation of the system consists of a master process and two sets of sl
 <img src="Figures/Figure_time_consumption.png" width="700">
 </p>
 
-The breakdown of time consumption (tested with 16 expansion and simulation workers) indicates we successfully parallel the most time-consuming expansion and simulation process and maintains time-consumption of other steps relatively small.
+The breakdown of time consumption (tested with 16 expansion and simulation workers) indicates we successfully parallelize the most time-consuming expansion and simulation process and maintains time-consumption of other steps relatively small.
 
 # Usage
 ## Prerequisites
