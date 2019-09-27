@@ -92,11 +92,11 @@ We kindly provide an [environment wrapper](./Env/EnvWrapper.py) and a [policy wr
 
 1. Edit the class EnvWrapper in [./Env/EnvWrapper.py](./Env/EnvWrapper.py).
 
-  Nest your environment into the wrapper by providing specific functionality in each of the member function of EnvWrapper. There are currently four input arguments to EnvWrapper: *env_name*, *max_episode_length*, *enable_record*, and *record_path*. If additional information needs to be imported, you may first consider adding them in *env_name*.
+    Nest your environment into the wrapper by providing specific functionality in each of the member function of EnvWrapper. There are currently four input arguments to EnvWrapper: *env_name*, *max_episode_length*, *enable_record*, and *record_path*. If additional information needs to be imported, you may first consider adding them in *env_name*.
 
 2. Edit the class PolicyWrapper in [./Policy/PolicyWrapper.py](./Policy/PolicyWrapper.py).
 
-  Similarly, nest your default policy in PolicyWrapper, and pass the corresponding method using --policy. You will need to rewrite *get_action*, *get_value*, and *get_prior_prob* three member functions.
+    Similarly, nest your default policy in PolicyWrapper, and pass the corresponding method using --policy. You will need to rewrite *get_action*, *get_value*, and *get_prior_prob* three member functions.
 
 # Updates and to-dos
 ## Past updates
