@@ -1,5 +1,5 @@
 # P-UCT
-A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provide demo on Atari games (see [Run on your own environments](#Run-on-your-own-environments)） To allow easy extension to other environments, we include an environment [wrapper file](./Env/EnvWrapper.py)
+A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provide demo on Atari games (see [Running](#Running). To allow easy extension to other environments, we wrote the code in an extendable way, and modification on only two files are needed for other environments (see [Run on your own environments](#Run-on-your-own-environments)).
 
 # Introduction
 Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org) paper (temporary unavailable).
@@ -88,14 +88,20 @@ a policy file will be generated in [./Utils/Atari_PPO_training/save](./Utils/Ata
 ```
 
 ## Run on your own environments
-We kindly provide an [environment wrapper](./Env/EnvWrapper.py) to make easy extensions to other environments. All you need is to modify [./Env/EnvWrapper.py](./Env/EnvWrapper.py) and fit in your own environment. Specifically, you just need to rewrite APIs in the EnvWrapper class.
+We kindly provide an [environment wrapper](./Env/EnvWrapper.py) and a [policy wrapper](./Policy/PolicyWrapper.py) to make easy extensions to other environments. All you need is to modify [./Env/EnvWrapper.py](./Env/EnvWrapper.py) and [./Policy/PolicyWrapper.py](./Policy/PolicyWrapper.py), and fit in your own environment. Please follow the below instructions.
+
+1. Edit the class EnvWrapper in [./Env/EnvWrapper.py](./Env/EnvWrapper.py).
+Nest your environment into the wrapper by providing specific functionality in each of the member function of EnvWrapper. There are currently four input arguments to EnvWrapper: *env_name*, *max_episode_length*, *enable_record*, and *record_path*. If additional information needs to be imported, you may first consider adding them in *env_name*.
+
+2. Edit the class PolicyWrapper in [./Policy/PolicyWrapper.py](./Policy/PolicyWrapper.py).
+Similarly, nest your default policy in PolicyWrapper, and pass the corresponding method using --policy. You will need to rewrite *get_action*, *get_value*, and *get_prior_prob* three member functions.
 
 # Updates and to-dos
 ## Past updates
-(currently empty)
+1. Refactor prior policy module to support easy reuse (Sep. 26, 2019).
 
 ## To-do list
-1. Refactor prior policy module to support easy reuse.
+(empty)
 
 # Reference
 Please cite the paper in the following format if you used this code during your research :)
