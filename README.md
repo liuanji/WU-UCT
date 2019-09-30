@@ -2,7 +2,7 @@
 A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provides a demo on Atari games (see [Running](#Running)). To allow easy extension to other environments, we wrote the code in an extendable way, and modification on only two files are needed for other environments (see [Run on your own environments](#Run-on-your-own-environments)).
 
 # Introduction
-Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org) paper (temporary unavailable).
+Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org/abs/1810.11755) paper.
 
 ## Conceptual idea
 <p align="center">
@@ -108,13 +108,10 @@ We kindly provide an [environment wrapper](./Env/EnvWrapper.py) and a [policy wr
 # Reference
 Please cite the paper in the following format if you used this code during your research :)
 ```
-@inproceedings{
-  anonymous2020watch,
+@article{liu2018watch,
   title={Watch the Unobserved: A Simple Approach to Parallelizing Monte Carlo Tree Search},
-  author={Anonymous},
-  booktitle={Submitted to International Conference on Learning Representations},
-  year={2020},
-  url={https://openreview.net/forum?id=BJlQtJSKDB},
-  note={under review}
+  author={Liu, Anji and Chen, Jianshu and Yu, Mingze and Zhai, Yu and Zhou, Xuewen and Liu, Ji},
+  journal={arXiv preprint arXiv:1810.11755},
+  year={2018}
 }
 ```
