@@ -108,10 +108,10 @@ We kindly provide an [environment wrapper](./Env/EnvWrapper.py) and a [policy wr
 # Reference
 Please cite the paper in the following format if you used this code during your research :)
 ```
-@article{liu2018watch,
+@article{liu2019watch,
   title={Watch the Unobserved: A Simple Approach to Parallelizing Monte Carlo Tree Search},
   author={Liu, Anji and Chen, Jianshu and Yu, Mingze and Zhai, Yu and Zhou, Xuewen and Liu, Ji},
   journal={arXiv preprint arXiv:1810.11755},
-  year={2018}
+  year={2019}
 }
 ```
