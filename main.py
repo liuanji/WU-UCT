@@ -11,8 +11,8 @@ from Utils.NetworkDistillation.Distillation import train_distillation
 
 def main():
     parser = argparse.ArgumentParser(description = "P-MCTS")
-    parser.add_argument("--model", type = str, default = "P-UCT",
-                        help = "Base MCTS model P-UCT/UCT (default: P-UCT)")
+    parser.add_argument("--model", type = str, default = "WU-UCT",
+                        help = "Base MCTS model WU-UCT/UCT (default: WU-UCT)")
 
     parser.add_argument("--env-name", type = str, default = "AlienNoFrameskip-v0",
                         help = "Environment name (default: AlienNoFrameskip-v0)")
@@ -59,7 +59,7 @@ def main():
 
     if args.mode == "MCTS":
         # Model initialization
-        if args.model == "P-UCT":
+        if args.model == "WU-UCT":
             MCTStree = P_UCT(env_params, args.MCTS_max_steps, args.MCTS_max_depth,
                              args.MCTS_max_width, args.gamma, args.expansion_worker_num,
                              args.simulation_worker_num, policy = args.policy,
