@@ -3,7 +3,7 @@ import multiprocessing
 import scipy.io as sio
 import os
 
-from Tree.P_UCT import P_UCT
+from Tree.WU_UCT import WU_UCT
 from Tree.UCT import UCT
 
 from Utils.NetworkDistillation.Distillation import train_distillation
@@ -60,10 +60,11 @@ def main():
     if args.mode == "MCTS":
         # Model initialization
         if args.model == "WU-UCT":
-            MCTStree = P_UCT(env_params, args.MCTS_max_steps, args.MCTS_max_depth,
-                             args.MCTS_max_width, args.gamma, args.expansion_worker_num,
-                             args.simulation_worker_num, policy = args.policy,
-                             seed = args.seed, device = args.device, record_video = args.record_video)
+            MCTStree = WU_UCT(env_params, args.MCTS_max_steps, args.MCTS_max_depth,
+                              args.MCTS_max_width, args.gamma, args.expansion_worker_num,
+                              args.simulation_worker_num, policy = args.policy,
+                              seed = args.seed, device = args.device,
+                              record_video = args.record_video)
         elif args.model == "UCT":
             MCTStree = UCT(env_params, args.MCTS_max_steps, args.MCTS_max_depth,
                            args.MCTS_max_width, args.gamma, policy = args.policy, seed = args.seed)

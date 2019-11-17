@@ -5,7 +5,7 @@ import math
 from Utils.MovingAvegCalculator import MovingAvegCalculator
 
 
-class P_UCTnode():
+class WU_UCTnode():
     def __init__(self, action_n, state, checkpoint_idx, parent, tree,
                  prior_prob = None, is_head = False):
         self.action_n = action_n
@@ -65,7 +65,7 @@ class P_UCTnode():
 
     # Shallowly clone itself, contains necessary data only.
     def shallow_clone(self):
-        node = P_UCTnode(
+        node = WU_UCTnode(
             action_n = self.action_n,
             state = deepcopy(self.state),
             checkpoint_idx = self.checkpoint_idx,
@@ -159,7 +159,7 @@ class P_UCTnode():
             self.traverse_history[idx] = (action_taken, reward)
             return True
 
-    # Incomplete update, called by P_UCT.py
+    # Incomplete update, called by WU_UCT.py
     def update_incomplete(self, idx):
         action_taken = self.traverse_history[idx][0]
 
@@ -169,7 +169,7 @@ class P_UCTnode():
         self.children_visit_count[action_taken] += 1
         self.visit_count += 1
 
-    # Complete update, called by P_UCT.py
+    # Complete update, called by WU_UCT.py
     def update_complete(self, idx, accu_reward):
         if idx not in self.traverse_history:
             raise RuntimeError("idx {} should be in traverse_history".format(idx))
@@ -195,7 +195,7 @@ class P_UCTnode():
         if self.children[action] is not None:
             node = self.children[action]
         else:
-            node = P_UCTnode(
+            node = WU_UCTnode(
                 action_n = self.action_n,
                 state = child_state,
                 checkpoint_idx = checkpoint_idx,

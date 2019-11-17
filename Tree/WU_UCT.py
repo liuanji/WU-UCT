@@ -4,7 +4,7 @@ import gc
 import time
 import logging
 
-from Node.P_UCTnode import P_UCTnode
+from Node.WU_UCTnode import WU_UCTnode
 
 from Env.EnvWrapper import EnvWrapper
 
@@ -13,7 +13,7 @@ from ParallelPool.PoolManager import PoolManager
 from Mem.CheckpointManager import CheckpointManager
 
 
-class P_UCT():
+class WU_UCT():
     def __init__(self, env_params, max_steps = 1000, max_depth = 20, max_width = 5,
                  gamma = 1.0, expansion_worker_num = 16, simulation_worker_num = 16,
                  policy = "Random", seed = 123, device = "cpu", record_video = False):
@@ -152,7 +152,7 @@ class P_UCT():
 
         # Construct root node
         self.checkpoint_data_manager.checkpoint_env("main", self.global_saving_idx)
-        self.root_node = P_UCTnode(
+        self.root_node = WU_UCTnode(
             action_n = self.action_n,
             state = state,
             checkpoint_idx = self.global_saving_idx,
