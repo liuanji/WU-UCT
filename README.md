@@ -1,21 +1,21 @@
-# P-UCT
+# WU-UCT (Watch the Unobserved in UCT)
 A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provides a demo on Atari games (see [Running](#Running)). To allow easy extension to other environments, we wrote the code in an extendable way, and modification on only two files are needed for other environments (see [Run on your own environments](#Run-on-your-own-environments)).
 
 # Introduction
-Note: For full details of P-UCT, please refer to our [Arxiv](https://arxiv.org/abs/1810.11755) paper.
+Note: For full details of WU-UCT, please refer to our [Arxiv](https://arxiv.org/abs/1810.11755) paper.
 
 ## Conceptual idea
 <p align="center">
 <img src="Figures/Figure_puct_conceptual_idea.png" width="700">
 </p>
 
-We use the above figure to demonstrate the main problem caused by parallelizing UCT. (a) illustrates the four main steps of UCT: selection, expansion, simulation, and backpropagation. (b) a demonstration of the ideal (but unrealistic) parallel algorithm, i.e., the return V (cumulative reward) is available as soon as simulations start (in real-world cases they are observable only after simulations complete). (c) if we parallelize UCT naively, problems such as *collapes of exploration* or *exploitation failure* will happen. Specifically, since less statistics are available at the selection step, the algorithm cannot choose the "best" node to query. (d) we propose to keep track of the on-going but non-terminated simulations (called unobserved samples) to correct and compensate the outdated statistics. This allows performing principled selection step on parallel settings, allowing P-UCT to achieve linear speedup as well as negligible performance loss.
+We use the above figure to demonstrate the main problem caused by parallelizing UCT. (a) illustrates the four main steps of UCT: selection, expansion, simulation, and backpropagation. (b) a demonstration of the ideal (but unrealistic) parallel algorithm, i.e., the return V (cumulative reward) is available as soon as simulations start (in real-world cases they are observable only after simulations complete). (c) if we parallelize UCT naively, problems such as *collapes of exploration* or *exploitation failure* will happen. Specifically, since less statistics are available at the selection step, the algorithm cannot choose the "best" node to query. (d) we propose to keep track of the on-going but non-terminated simulations (called unobserved samples) to correct and compensate the outdated statistics. This allows performing principled selection step on parallel settings, allowing WU-UCT to achieve linear speedup as well as negligible performance loss.
 
 <p align="center">
 <img src="Figures/Figure_tap_results.png" width="700">
 </p>
 
-P-UCT achieves ideal speedup under up to 16 workers, also without performance degradation.
+WU-UCT achieves ideal speedup under up to 16 workers, also without performance degradation.
 
 <p align="center">
 <img src="Figures/Figure_atari_results.png" width="700">
