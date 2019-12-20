@@ -1,6 +1,8 @@
 # WU-UCT (Watch the Unobserved in UCT)
 A novel parallel UCT algorithm with linear speedup and negligible performance loss. This package provides a demo on Atari games (see [Running](#Running)). To allow easy extension to other environments, we wrote the code in an extendable way, and modification on only two files are needed for other environments (see [Run on your own environments](#Run-on-your-own-environments)).
 
+This work has been accepted by **ICLR 2020** for **oral full presentation (48/2594)**.
+
 # Introduction
 Note: For full details of WU-UCT, please refer to our [Arxiv](https://arxiv.org/abs/1810.11755) paper.
 
@@ -108,10 +110,12 @@ We kindly provide an [environment wrapper](https://github.com/liuanji/WU-UCT/tre
 # Reference
 Please cite the paper in the following format if you used this code during your research :)
 ```
-@article{liu2019watch,
-  title={Watch the Unobserved: A Simple Approach to Parallelizing Monte Carlo Tree Search},
-  author={Liu, Anji and Chen, Jianshu and Yu, Mingze and Zhai, Yu and Zhou, Xuewen and Liu, Ji},
-  journal={arXiv preprint arXiv:1810.11755},
-  year={2019}
+@inproceedings{liu2020watch,
+  title     = {Watch the Unobserved: A Simple Approach to Parallelizing Monte Carlo Tree Search},
+  author    = {Anji Liu and Jianshu Chen and Mingze Yu and Yu Zhai and Xuewen Zhou and Ji Liu},
+  booktitle = {International Conference on Learning Representations},
+  month     = apr,
+  year      = {2020},
+  url       = "https://openreview.net/forum?id=BJlQtJSKDB"
 }
 ```
