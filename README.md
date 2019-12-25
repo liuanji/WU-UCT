@@ -8,7 +8,7 @@ This work has been accepted by **ICLR 2020** for **oral full presentation (48/25
 This [Google Colaboratory link](https://colab.research.google.com/drive/140Ea6pd8abvg_HdZDVsCVfdeLICSa-f0) contains a demo on the PongNoFrameskip-v0 environment. We thank [@lvisdd](https://github.com/lvisdd) for building this useful demo!
 
 # Introduction
-Note: For full details of WU-UCT, please refer to our [Arxiv](https://arxiv.org/abs/1810.11755) paper.
+Note: For full details of WU-UCT, please refer to our [Arxiv](https://arxiv.org/abs/1810.11755) or [OpenReview](https://openreview.net/forum?id=BJlQtJSKDB) paper. (we are working on the camera-ready version)
 
 ## Conceptual idea
 <p align="center">
