@@ -3,6 +3,10 @@ A novel parallel UCT algorithm with linear speedup and negligible performance lo
 
 This work has been accepted by **ICLR 2020** for **oral full presentation (48/2594)**.
 
+# A quick demo!
+
+This [Google Colaboratory link](https://colab.research.google.com/drive/140Ea6pd8abvg_HdZDVsCVfdeLICSa-f0) contains a demo on the PongNoFrameskip-v0 environment. We thank [@lvisdd](https://github.com/lvisdd) for building this useful demo!
+
 # Introduction
 Note: For full details of WU-UCT, please refer to our [Arxiv](https://arxiv.org/abs/1810.11755) paper.
 
