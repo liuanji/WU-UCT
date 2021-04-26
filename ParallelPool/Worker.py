@@ -157,12 +157,15 @@ class Worker(Process):
     def send_safe_protocol(self, command, args):
         success = False
 
+        count = 0
         while not success:
             self.pipe.send((command, args))
 
             ret = self.pipe.recv()
-            if ret == command:
+            if ret == command or count >= 10:
                 success = True
+                
+            count += 1
 
     # Receive message from pipe
     def receive_safe_protocol(self):

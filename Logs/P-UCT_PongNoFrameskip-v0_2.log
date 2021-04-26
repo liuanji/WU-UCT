@@ -1,0 +1,40 @@
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.08671399999999974 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.057615000000000194 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.03940900000000003 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.1905620000000008 s
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.0762299999999998 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.056526999999999994 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.03324400000000072 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.170744 s
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.08742099999999997 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.06279500000000038 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.03778300000000012 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.19406799999999969 s
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.08251399999999975 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.06034000000000006 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.03646799999999928 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.18416899999999892 s
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.07740399999999958 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.05805099999999985 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.04050599999999971 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.1810780000000003 s
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.07699799999999968 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.057166000000000494 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.045889999999999986 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.18729399999999963 s
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.08565299999999976 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.06538600000000017 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.039832000000000534 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.19675399999999943 s
+INFO:root:Start simulation
+INFO:root:> Time step 0, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.08642699999999959 seconds
+INFO:root:> Time step 1, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.06492400000000043 seconds
+INFO:root:> Time step 2, take action 0, instance reward 0.0, cumulative reward 0.0, used 0.051433999999999536 seconds
+INFO:root:> game ended. total reward: 0.0, used time 0.20910600000000024 s

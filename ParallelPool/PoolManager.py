@@ -182,7 +182,7 @@ class PoolManager():
 
     def close_pool(self):
         for worker_idx in range(self.worker_num):
-            self.pipes[worker_idx].send(("KillProc", None))
+            self.send_safe_protocol(worker_idx, "KillProc", None)
 
         for worker in self.workers:
             worker.join()
